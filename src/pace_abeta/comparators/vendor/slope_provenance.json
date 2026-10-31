@@ -1,0 +1,11 @@
+{
+  "source": "Group-supplied original project snapshot, DAPS_code/slope_modules",
+  "snapshot_sha256": "8e9663ec17092458ed6bb1a171a54ca81641e7ec333601135a68c31f648efa69",
+  "files": {
+    "Train.py": "8bb865df50b772d6559f30259adf2fcbc20925b0e19acdbc3f98d410ec6a2197",
+    "spline.py": "d6b15f289e1ab37b927d47fb8d174eff747969f5d75240c580a2c20fb617ac4c"
+  },
+  "modifications": "None: exact original file bytes, including original seed42 defaults.",
+  "license": "No separate license notice was provided in these two original source files. They are the authors group-supplied code; no third-party license is inferred.",
+  "configuration": "Existing fixed benchmark call, not every function-signature default."
+}

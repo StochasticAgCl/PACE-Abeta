@@ -1,0 +1,4 @@
+* text=auto eol=lf
+src/pace_abeta/comparators/vendor/slope/Train.py -text
+src/pace_abeta/comparators/vendor/slope/spline.py -text
+models/*.pt binary

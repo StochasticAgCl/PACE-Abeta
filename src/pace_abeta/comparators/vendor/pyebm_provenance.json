@@ -1,0 +1,26 @@
+{
+  "package": "pyebm",
+  "version": "2.0.3",
+  "source": "https://pypi.org/project/pyebm/2.0.3/",
+  "upstream": "https://github.com/88vikram/pyebm",
+  "wheel_sha256": "246e1bb93db4ad0ed0c701f3e241b9c7ceda112599acff1c86291abaf6cb8df4",
+  "license": "GPLv3+ (wheel classifier); bundled LICENSE is GNU GPL Version3",
+  "files": {
+    "pyebm/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pyebm/core_utilities.py": "e74650bfabea67885151142e142082feeeb944af50380db86256168ee0927972",
+    "pyebm/debm.py": "d4914b7006fde9f474678e818f91030d408e85f8f1fe5f8eceac0aa2998faa1c",
+    "pyebm/ebm.py": "f364fe7a775ae172e88661868db4fe377a864907c17e7297e5a2e695695da505",
+    "pyebm/load_dataset.py": "760f4d6c48b606035479fc13b6d9710e93dc66a0de0035198367c9a76e15daca",
+    "pyebm/central_ordering/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pyebm/central_ordering/data_likelihood.py": "2e92f68bc8bc1eab1ee4dc5e06b009e3947581c9e3ec46246c2172fe13dd0a8f",
+    "pyebm/central_ordering/generalized_mallows.py": "9c05900c77e81d9499e6f02a6d62879bb1de1fea51095834897cac2042aba431",
+    "pyebm/inputs_outputs/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pyebm/inputs_outputs/prepare_inputs.py": "e7e684cb72b78906cd95903f11619768ec93698d1f715953be74293eb532ea84",
+    "pyebm/inputs_outputs/prepare_outputs.py": "ac39232005e092e9bb94ec6ec9ab79f14e249436d334b4818d40daf984de9909",
+    "pyebm/inputs_outputs/visualize.py": "237b88c57e33c5f8f98ff05b270dc93a0fb1cbcd07a160f23b84883ef86caa41",
+    "pyebm/mixture_model/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pyebm/mixture_model/do_classification.py": "2bc4b22a0f5d0e539b80c02a3cdbe1a67791d0e5af06eafbf94dc5ef297807c7",
+    "pyebm/mixture_model/gaussian_mixture_model.py": "591fddc3646822f8c045e71ff930c3f1f080cce63dc7121ae34dc9b6fad9b8b6"
+  },
+  "distribution": "Installed external dependency; pyebm algorithm sources are not vendored or patched."
+}

@@ -1,0 +1,147 @@
+{
+  "study_name": "pace_abeta_seed42_cv10_trials128_allgap",
+  "seed": 42,
+  "fold_seed": 42,
+  "split_seed": 42,
+  "folds": 10,
+  "fold_workers": 12,
+  "worker_threads": 1,
+  "trials": 128,
+  "startup_trials": 16,
+  "optuna_version": "5.0.0",
+  "device": "cpu",
+  "search_space": {
+    "beta": {
+      "type": "float",
+      "low": 0.0001,
+      "high": 10.0,
+      "log": true
+    },
+    "tau": {
+      "type": "float",
+      "low": 0.003,
+      "high": 3.0,
+      "log": true
+    },
+    "rho": {
+      "type": "categorical",
+      "choices": [
+        0.0,
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9
+      ]
+    },
+    "lr": {
+      "type": "float",
+      "low": 1e-05,
+      "high": 0.003,
+      "log": true
+    },
+    "epochs": {
+      "type": "int",
+      "low": 100,
+      "high": 1600,
+      "log": true
+    }
+  },
+  "loss": {
+    "expression": "sum E||x-g(Z)||^2/(N*d) + beta*(sum E full ascending Plackett-Luce NLL + sum joint KL(q_i||Normal(0,K_i)))/N",
+    "prior": "K_i=(1-rho)I+rho11T",
+    "reconstruction": "one reparameterized Gaussian sample per visit; per-feature squared error",
+    "ranking": "16 antithetic Gaussian Monte Carlo samples; full permutation likelihood, no pair cap or pair averaging",
+    "kl": "analytic joint diagonal-q versus compound-symmetry prior KL",
+    "weights": "same beta on order and KL; beta=2*sigma_x_squared/d; no extra lambda",
+    "minibatches": "shuffle subjects each epoch; b whole subjects per batch; divide summed subject contributions by b*N/n_train_subjects",
+    "annealing": "none; exact specified objective from epoch one"
+  },
+  "score": {
+    "primary": "E_q[Z|x]=encoder_mu",
+    "distribution": "q_theta(z|x)=Normal(mu_theta(x), exp(logvar_theta(x)))",
+    "implementation": "One canonical score_model(model,x) directly returns the float64 encoder mean in eval mode; no decoder or numerical posterior integration.",
+    "calibration": "Model scores remain raw encoder means. Selection uses participant-weighted rank maps fitted only on each fold training set; refit and held-out evaluation use the full-training rank map.",
+    "uses_decoder": false,
+    "interpretation": "Expectation of the fitted variational distribution, not a claim of exact decoder posterior inference."
+  },
+  "fixed_model": {
+    "hidden_dims": [
+      64,
+      32,
+      16
+    ],
+    "activation": "gelu",
+    "dropout": 0.0,
+    "weight_decay": 0.0,
+    "batch_subjects": 32,
+    "rank_samples": 16,
+    "logvar_min": -12.0,
+    "logvar_max": 6.0
+  },
+  "anchors": [
+    {
+      "beta": 0.01,
+      "tau": 0.1,
+      "rho": 0.2,
+      "lr": 0.001,
+      "epochs": 300
+    },
+    {
+      "beta": 0.01,
+      "tau": 0.1,
+      "rho": 0.4,
+      "lr": 0.001,
+      "epochs": 300
+    },
+    {
+      "beta": 0.01,
+      "tau": 0.1,
+      "rho": 0.6,
+      "lr": 0.001,
+      "epochs": 300
+    },
+    {
+      "beta": 0.01,
+      "tau": 0.1,
+      "rho": 0.8,
+      "lr": 0.001,
+      "epochs": 300
+    }
+  ],
+  "cohort_ready": false,
+  "selected_model": {
+    "seed": 42,
+    "hidden_dims": [
+      64,
+      32,
+      16
+    ],
+    "activation": "gelu",
+    "dropout": 0.0,
+    "weight_decay": 0.0,
+    "batch_subjects": 32,
+    "rank_samples": 16,
+    "logvar_min": -12.0,
+    "logvar_max": 6.0,
+    "beta": 0.10319626890596051,
+    "tau": 0.020366074203530617,
+    "rho": 0.8,
+    "lr": 2.456503433639552e-05,
+    "epochs": 1518
+  },
+  "reference_counts": {
+    "train_subjects": 846,
+    "train_scans": 1720,
+    "test_subjects": 390,
+    "test_scans": 1250,
+    "cv_adjacent_pairs": 874,
+    "test_adjacent_pairs": 860
+  },
+  "features_file": "features.json",
+  "selection_metric": "violation_ratio_times_conditional_gap"
+}

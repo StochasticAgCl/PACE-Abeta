@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pace-abeta"
+version = "0.1.0"
+description = "Progression-aware continuous embedding of regional amyloid PET"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "numpy==2.4.1",
+  "pandas==2.3.3",
+  "scipy==1.17.0",
+  "scikit-learn==1.8.0",
+  "torch==2.9.1",
+  "optuna==5.0.0",
+  "matplotlib==3.10.8",
+  "seaborn==0.13.2",
+  "statsmodels==0.14.6",
+  "umap-learn==0.5.11",
+  "numba==0.67.0",
+  "llvmlite==0.49.0",
+  "pynndescent==0.6.0",
+  "threadpoolctl==3.7.0",
+  "networkx==3.6.1",
+  "joblib==1.6.0",
+  "pyebm==2.0.3",
+  "pypdf==6.10.0",
+  "Pillow==12.3.0",
+]
+
+[project.optional-dependencies]
+test = ["pytest==9.1.1"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"pace_abeta.comparators.vendor" = ["*.json"]
+"pace_abeta.comparators.vendor.slope" = ["*.json", "*.md", "*.txt"]
+"pace_abeta.analysis" = ["*.R", "*.json", "*.txt"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"

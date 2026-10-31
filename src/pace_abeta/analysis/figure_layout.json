@@ -1,0 +1,27 @@
+{
+  "png_dpi": 600,
+  "figure2": {
+    "canvas_mm": [59.333333333333336, 57],
+    "axes_rect_mm": [13, 14, 44, 35]
+  },
+  "figure3": {
+    "canvas_mm": [81, 75],
+    "axes_rect_mm": [14, 17, 65, 50],
+    "row_gap_mm": 1,
+    "top_row_bottom_trim_mm": 6,
+    "fonts_pt": {
+      "tick": 10,
+      "annotation": 9.5,
+      "axis_title": 11,
+      "panel_title": 12,
+      "legend_text": 10,
+      "legend_title": 11,
+      "panel_letter": 11
+    }
+  },
+  "panel_letter": {
+    "x_mm": 0.8,
+    "baseline_from_top_mm": 3.7,
+    "font_pt": 10
+  }
+}
